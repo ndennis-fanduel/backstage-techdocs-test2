@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "backstage-techdocs-test2"
+  description: Documentation for My Service
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: documentation
+  owner: user:guest
+  lifecycle: experimental
