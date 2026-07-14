@@ -1,0 +1,41 @@
+apiVersion: v3
+kind: service
+metadata:
+  name: portal-frontend
+  description: Portal Frontend
+  owner: platform-experience
+  contacts:
+    - name: platform-services-help
+      type: slack
+      contact: https://flutter.enterprise.slack.com/archives/C094BQUE23A
+  links:
+    - name: Podium Panel App
+      type: repo
+      provider: github
+      url: https://github.com/fanduel/portal-frontend
+    - name: Build Pipeline
+      type: build
+      provider: buildkite
+      url: https://buildkite.com/fanduel/portal-frontend-build
+    - name: Deploy Pipeline
+      type: deploy
+      provider: buildkite
+      url: https://buildkite.com/fanduel/portal-frontend-deploy
+  tags:
+    - type:service
+    - application-state:stateless-share-nothing
+    - kind:ui
+    - domain:platform-engineering
+    - vertical:platform-services
+    - platform:podium
+    - deployment-ui:portal
+spec:
+  type: web
+  lifecycle: production
+  tier: p2
+  languages:
+    - typescript
+    - javascript
+integrations:
+  pagerduty:
+    serviceURL: https://fanduel.pagerduty.com/service-directory/PIM0GR6
